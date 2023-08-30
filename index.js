@@ -46,10 +46,23 @@ app.use((req, res, next) => {
 });
 
 app.get("/api", (req, res) => {
-    res.json({
-    unix: new Date().getTime(),
-    utc: new Date().toUTCString()
-  });
+  // let date = new Date();
+  // let UTC = date.getTime();
+  // UTC = new Date(UTC);
+  // UTS = UTC.toUTCString();
+  // let UNIX = date.getTime();
+  // res.json({ unix: UNIX, utc: UTS });
+  const currentTime = new Date();
+  currentTime.setHours(currentTime.getHours() + 8);
+
+  //   res.json({
+  //     unix: new Date().getTime(),
+  //     utc: new Date().toUTCString()
+  // });
+  res.json({
+    unix: currentTime.getTime(),
+    utc: currentTime.toUTCString()
+  })
 });
 
 // listen for requests :)
