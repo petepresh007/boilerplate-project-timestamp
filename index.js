@@ -39,8 +39,14 @@ app.get("/api/:date", function (req, res) {
   });
 });
 
+app.use((req, res, next) => {
+  // Set the timezone to UTC for the entire app
+  process.env.TZ = 'UTC';
+  next();
+});
+
 app.get("/api", (req, res) => {
-  res.json({
+    res.json({
     unix: new Date().getTime(),
     utc: new Date().toUTCString()
   });
