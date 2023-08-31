@@ -52,17 +52,17 @@ app.get("/api", (req, res) => {
   // UTS = UTC.toUTCString();
   // let UNIX = date.getTime();
   // res.json({ unix: UNIX, utc: UTS });
-  const currentTime = new Date();
-  currentTime.setHours(currentTime.getHours() + 8);
+  // const currentTime = new Date();
+  // currentTime.setHours(currentTime.getHours() + 8);
 
-  //   res.json({
-  //     unix: new Date().getTime(),
-  //     utc: new Date().toUTCString()
-  // });
-  res.json({
-    unix: currentTime.getTime(),
-    utc: currentTime.toUTCString()
-  })
+    res.json({
+      unix: new Date().getTime(),
+      utc: new Date().toUTCString()
+  });
+  // res.json({
+  //   unix: currentTime.getTime(),
+  //   utc: currentTime.toUTCString()
+  // })
 });
 
 // listen for requests :)
